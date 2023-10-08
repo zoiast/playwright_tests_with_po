@@ -1,4 +1,4 @@
-name: Build on Ubuntu
+name: Launch Playwright tests
 on: push
 
 jobs:
@@ -7,6 +7,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: RUN INSTALL
+      - name: RUN NPM INSTALL
         run: |
           npm install
+      - name: RUN TESTS
+        run: |
+          npm run test
