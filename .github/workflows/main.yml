@@ -10,6 +10,7 @@ jobs:
       - name: RUN NPM INSTALL
         run: |
           npm install
+          npx playwright install
       - name: RUN TESTS
         run: |
           npm run test
