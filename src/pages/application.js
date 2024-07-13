@@ -6,6 +6,9 @@ import { ShoppingCartPage } from './ShoppingCart.page';
 import { BaseSwagLabPage } from './BaseSwagLab.page';
 
 class Page {
+    /**
+     * @param {import("playwright-core").Page} page
+     */
     constructor(page) {
         this.page = page;
     }

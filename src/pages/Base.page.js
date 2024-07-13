@@ -2,6 +2,9 @@
 export class BasePage {
     url = '';
 
+    /**
+     * @param {import("playwright-core").Page} page
+     */
     constructor(page) {
         this.page = page;
     }
