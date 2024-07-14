@@ -6,7 +6,7 @@ on:
       - '**'
 
 jobs:
-  test:
+  playwright-tests:
     env:
       HOME: /root
     timeout-minutes: 10
