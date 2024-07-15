@@ -38,7 +38,7 @@ module.exports = defineConfig({
 
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
-        /*  */
+        /* Default timeout for each Playwright action in milliseconds, defaults to 0 (no timeout). */
         actionTimeout: 15_000,
 
         /* Base URL to use in actions like `await page.goto('/')`. */
