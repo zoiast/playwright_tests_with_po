@@ -1,15 +1,16 @@
-const { BasePage } = require('./Base.page');
+// @ts-check
+import { BasePage } from './Base.page';
 
 export class LoginPage extends BasePage {
-    get userName() { return this.page.locator('#user-name'); }
+    userNameInput = this.page.locator('#user-name');
 
-    get password() { return this.page.locator('#password'); }
+    passwordInput = this.page.locator('#password');
 
-    get loginBtn() { return this.page.locator('#login-button'); }
+    loginButton = this.page.locator('#login-button');
 
     async performLogin(userName, password) {
-        await this.userName.fill(userName);
-        await this.password.fill(password);
-        await this.loginBtn.click();
+        await this.userNameInput.fill(userName);
+        await this.passwordInput.fill(password);
+        await this.loginButton.click();
     }
 }

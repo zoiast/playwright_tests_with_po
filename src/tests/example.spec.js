@@ -1,27 +1,30 @@
-// @ts-check
-const { expect } = require('@playwright/test');
-const { test } = require('../fixture');
+import { expect } from '@playwright/test';
+import { test } from '../fixtures/base';
 
-test.describe('', () => {
-    test('Perform login', async ({ loginPage, inventoryPage }) => {
-        await loginPage.navigate();
-        await loginPage.performLogin('standard_user', 'secret_sauce');
+test.describe('Saucedemo app basic tests', () => {
+    test('should login successfully', async (
+        /** @type {{ app: import('../pages/Application').Application }} */{ app },
+    ) => {
+        await app.login.navigate();
+        await app.login.performLogin('standard_user', 'secret_sauce');
 
-        await expect(inventoryPage.headerTitle).toBeVisible();
+        await expect(app.inventory.headerTitle).toBeVisible();
 
-        expect(await inventoryPage.inventoryItems.count()).toBeGreaterThanOrEqual(1);
+        expect(await app.inventory.inventoryItems.count()).toBeGreaterThanOrEqual(1);
     });
 
-    test('Add and remove product from the cart', async ({ loginPage, inventoryPage, shopingCartPage }) => {
-        await loginPage.navigate();
-        await loginPage.performLogin('standard_user', 'secret_sauce');
-        await inventoryPage.addItemToCartById(0);
-        expect(await inventoryPage.getNumberOfItemsInCart()).toBe('1');
+    test('should add and remove product from the cart', async (
+        /** @type {{ app: import('../pages/Application').Application }} */{ app },
+    ) => {
+        await app.login.navigate();
+        await app.login.performLogin('standard_user', 'secret_sauce');
+        await app.inventory.addItemToCartById(0);
+        expect(await app.inventory.getNumberOfItemsInCart()).toBe('1');
 
-        await inventoryPage.shopingCart.click();
-        expect(await shopingCartPage.cartItems.count()).toBeGreaterThanOrEqual(1);
+        await app.inventory.shoppingCart.click();
+        expect(await app.shoppingCart.cartItems.count()).toBeGreaterThanOrEqual(1);
 
-        await shopingCartPage.removeCartItemById(0);
-        await expect(shopingCartPage.cartItems).not.toBeAttached();
+        await app.shoppingCart.removeCartItemById(0);
+        await expect(app.shoppingCart.cartItems).not.toBeAttached();
     });
 });

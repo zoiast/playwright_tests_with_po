@@ -1,14 +1,15 @@
-const { BasePage } = require('./Base.page');
+// @ts-check
+import { BasePage } from './Base.page';
 
 export class BaseSwagLabPage extends BasePage {
     // header
-    get mainMenuBtn() { return this.page.locator('TBD'); }
+    mainMenuBtn = this.page.locator('TBD');
 
-    get shopingCart() { return this.page.locator('.shopping_cart_link'); }
+    shoppingCart = this.page.locator('.shopping_cart_link');
 
-    get shopingCartBadge() { return this.page.locator('.shopping_cart_badge'); }
+    shoppingCartBadge = this.page.locator('.shopping_cart_badge');
 
     async getNumberOfItemsInCart() {
-        return this.shopingCartBadge.textContent();
+        return this.shoppingCartBadge.textContent();
     }
 }

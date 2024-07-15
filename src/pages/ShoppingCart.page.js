@@ -1,18 +1,21 @@
-const { BaseSwagLabPage } = require('./BaseSwagLab.page');
+// @ts-check
+import { BaseSwagLabPage } from './BaseSwagLab.page';
 
-export class ShopingCartPage extends BaseSwagLabPage {
+export class ShoppingCartPage extends BaseSwagLabPage {
     url = '/cart.html';
 
     cartItemSelector = '.cart_item';
 
     removeItemSelector = '[id^="remove"]';
 
-    get headerTitle() { return this.page.locator('.title'); }
+    headerTitle = this.page.locator('.title');
 
-    get cartItems() { return this.page.locator(this.cartItemSelector); }
+    cartItems = this.page.locator(this.cartItemSelector);
 
     // async below added to show the function returns a promise
-    async getCartItemByName(name) { return this.page.locator(this.cartItemSelector, { hasText: name }); }
+    async getCartItemByName(name) {
+        return this.page.locator(this.cartItemSelector, { hasText: name });
+    }
 
     async removeCartItemByName(name) {
         const item = await this.getCartItemByName(name);
