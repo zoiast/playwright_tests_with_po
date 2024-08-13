@@ -1,4 +1,3 @@
-// @ts-check
 import { BasePage } from './Base.page';
 
 export class LoginPage extends BasePage {

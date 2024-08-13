@@ -1,4 +1,3 @@
-// @ts-check
 import { test as base } from '@playwright/test';
 import { Application } from '../pages/Application';
 

@@ -1,5 +1,3 @@
-// @ts-check
-// eslint-disable-next-line max-classes-per-file
 import { LoginPage } from './Login.page';
 import { InventoryPage } from './Inventory.page';
 import { ShoppingCartPage } from './ShoppingCart.page';

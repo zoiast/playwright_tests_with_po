@@ -1,4 +1,3 @@
-// @ts-check
 import { BaseSwagLabPage } from './BaseSwagLab.page';
 
 export class InventoryPage extends BaseSwagLabPage {
