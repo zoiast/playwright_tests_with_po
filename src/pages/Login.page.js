@@ -1,11 +1,11 @@
 import { BasePage } from './Base.page';
 
 export class LoginPage extends BasePage {
-    userNameInput = this.page.locator('#user-name');
+    userNameInput = this.page.getByTestId('username');
 
-    passwordInput = this.page.locator('#password');
+    passwordInput = this.page.getByTestId('password');
 
-    loginButton = this.page.locator('#login-button');
+    loginButton = this.page.getByTestId('login-button');
 
     async performLogin(userName, password) {
         await this.userNameInput.fill(userName);

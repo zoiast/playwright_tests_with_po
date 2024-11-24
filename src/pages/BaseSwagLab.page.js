@@ -2,13 +2,11 @@ import { BasePage } from './Base.page';
 
 export class BaseSwagLabPage extends BasePage {
     // header
-    mainMenuBtn = this.page.locator('TBD');
+    shoppingCart = this.page.getByTestId('shopping-cart-link');
 
-    shoppingCart = this.page.locator('.shopping_cart_link');
+    shoppingCartBadge = this.page.getByTestId('shopping-cart-badge');
 
-    shoppingCartBadge = this.page.locator('.shopping_cart_badge');
-
-    async getNumberOfItemsInCart() {
-        return this.shoppingCartBadge.textContent();
+    async openShoppingCart() {
+        await this.shoppingCart.click();
     }
 }
