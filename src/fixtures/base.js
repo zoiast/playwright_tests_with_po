@@ -1,4 +1,4 @@
-import { test as base } from '@playwright/test';
+import { test as base, expect } from '@playwright/test';
 import { Application } from '../pages/Application';
 
 export const test = base.extend({
@@ -13,3 +13,5 @@ export const test = base.extend({
         await use(app);
     },
 });
+
+export { expect };
