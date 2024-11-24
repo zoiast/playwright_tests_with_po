@@ -1,15 +1,17 @@
-import { BaseSwagLabPage } from './BaseSwagLab.page';
+import { BasePage } from './Base.page';
 
-export class InventoryPage extends BaseSwagLabPage {
+export class InventoryPage extends BasePage {
     url = '/inventory.html';
 
-    headerTitle = this.page.locator('.title');
+    headerTitle = this.page.getByTestId('title');
 
-    inventoryItems = this.page.locator('.inventory_item');
+    inventoryItems = this.page.getByTestId('inventory-item');
 
-    addItemToCartButton = this.page.locator('[id^="add-to-cart"]');
+    addToCartButtonFirstProduct = this.page.getByTestId(
+        'add-to-cart-sauce-labs-backpack',
+    );
 
-    async addItemToCartById(id) {
-        await this.addItemToCartButton.nth(id).click();
+    async addFirstProductToCart() {
+        await this.addToCartButtonFirstProduct.click();
     }
 }

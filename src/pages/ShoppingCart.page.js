@@ -1,27 +1,17 @@
-import { BaseSwagLabPage } from './BaseSwagLab.page';
+import { BasePage } from './Base.page';
 
-export class ShoppingCartPage extends BaseSwagLabPage {
+export class ShoppingCartPage extends BasePage {
     url = '/cart.html';
 
-    cartItemSelector = '.cart_item';
+    headerTitle = this.page.getByTestId('title');
 
-    removeItemSelector = '[id^="remove"]';
+    inventoryItems = this.page.getByTestId('inventory-item');
 
-    headerTitle = this.page.locator('.title');
+    removeButtonFirstProduct = this.page.getByTestId(
+        'remove-sauce-labs-backpack',
+    );
 
-    cartItems = this.page.locator(this.cartItemSelector);
-
-    // async below added to show the function returns a promise
-    async getCartItemByName(name) {
-        return this.page.locator(this.cartItemSelector, { hasText: name });
-    }
-
-    async removeCartItemByName(name) {
-        const item = await this.getCartItemByName(name);
-        return item.locator(this.removeItemSelector);
-    }
-
-    async removeCartItemById(id) {
-        await this.cartItems.nth(id).locator(this.removeItemSelector).click();
+    async removeFirstProductFromCart() {
+        await this.removeButtonFirstProduct.click();
     }
 }
