@@ -45,3 +45,4 @@ test.describe('sorting invertory page', () => {
         await expect(app.inventory.inventoryItems.nth(0).getByTestId('inventory-item-name')).toHaveText('Sauce Labs Fleece Jacket');
     });
 });
+//
